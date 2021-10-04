@@ -1,9 +1,20 @@
 const express = require('express');
 const router = express.Router();
-
+const connectDB = require ('./config/db');
+ 
 
 //Initializing express
 const app = express();
+
+//Init Middleware
+app.use(express.json({
+    extended: false
+}));
+
+
+//Connect Database
+connectDB();
+ 
 
 //Server port to listen on
 const  PORT  = process.env.PORT || 5000;
